@@ -1,0 +1,6 @@
+{
+  "task_id": 42,
+  "payload_mass_kg": 0.17950608425640432,
+  "template_name": "yaw_shift",
+  "description": "Common completed task used for the seven-method time-domain figure."
+}

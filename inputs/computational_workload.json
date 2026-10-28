@@ -1,0 +1,79 @@
+{
+  "manuscript_sections": [
+    "3.7",
+    "5.3",
+    "5.6"
+  ],
+  "table": 10,
+  "accounting": "Command selection; component counts are kept in distinct units.",
+  "MAC_definition": "One multiplication and accumulation in a dense or attention matrix product.",
+  "MAC_exclusions": [
+    "bias addition",
+    "normalization",
+    "activation",
+    "softmax",
+    "data movement",
+    "feature preparation",
+    "physical admission"
+  ],
+  "common_exclusions": [
+    "initial path construction",
+    "external robot and DC-link simulation propagation"
+  ],
+  "input": {
+    "preview_tokens": 81,
+    "retained_features_per_token": 96
+  },
+  "networks": {
+    "Transformer": {
+      "parameter_count": 285697,
+      "matrix_MACs": 25596480,
+      "projection_width": 128,
+      "encoder_blocks": 2,
+      "attention_heads": 4,
+      "feedforward_width": 256,
+      "output_head_width": 64,
+      "matrix_MAC_formula": "N_p*D*d_m + N_enc*(4*N_p*d_m^2 + 2*N_p^2*d_m + 2*N_p*d_m*d_f) + d_m*d_o + d_o"
+    },
+    "MLP": {
+      "parameter_count": 4129665,
+      "matrix_MACs": 4128832,
+      "hidden_widths": [
+        512,
+        256,
+        64
+      ],
+      "matrix_MAC_formula": "(N_p*D)*512 + 512*256 + 256*64 + 64"
+    }
+  },
+  "regularization": "Within each architecture, PR and SUP have identical network parameter and matrix-operation counts per forward evaluation.",
+  "search": {
+    "RG_0_and_RG_P": {
+      "prediction_steps": "W_RG <= N_h*N_eval",
+      "N_eval": "All candidate intervals evaluated, including continuation and refinement; state dependent.",
+      "prediction_model": "measured state"
+    },
+    "Nominal_RG_grid": {
+      "candidate_rates": 11,
+      "horizon_intervals": 4,
+      "beam_width": 10,
+      "prediction_steps_per_interval_max": 10,
+      "candidate_transition_upper_bound": 341,
+      "prediction_step_upper_bound": 3410,
+      "candidate_upper_bound_formula": "N_u*(1+(N_H-1)*B)",
+      "prediction_model": "nominal reference"
+    },
+    "Bus_PTP_beam": {
+      "path_nodes": 61,
+      "candidate_rates": 49,
+      "beam_width": 32,
+      "candidate_edge_upper_bound": 92561,
+      "candidate_upper_bound_formula": "N_u*(1+(N_s-2)*B)",
+      "prediction_steps": "W_P = sum_e sum_j n_ej, n_ej <= N_h",
+      "J_e": "Number of policy intervals predicted to cross or reject candidate edge e.",
+      "scope": "One complete plan; online schedule application is separate.",
+      "prediction_model": "nominal reference"
+    }
+  },
+  "interpretation": "Bounds are not observed mean counts. Counts of different primitives are not summed into FLOPs or a speed ratio. Physical admission remains active for all methods."
+}

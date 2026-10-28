@@ -1,0 +1,198 @@
+{
+  "robustness_cases": [
+    {
+      "id": 1,
+      "name": "nominal",
+      "family": "nominal",
+      "parameter": "",
+      "assignment": "",
+      "value": 0
+    },
+    {
+      "id": 2,
+      "name": "joint_noise_0p3",
+      "family": "joint_noise",
+      "parameter": "",
+      "assignment": "",
+      "value": 0.3
+    },
+    {
+      "id": 3,
+      "name": "joint_noise_0p5_boundary",
+      "family": "joint_noise",
+      "parameter": "",
+      "assignment": "",
+      "value": 0.5
+    },
+    {
+      "id": 4,
+      "name": "unknown_friction",
+      "family": "friction",
+      "parameter": "",
+      "assignment": "",
+      "value": 0
+    },
+    {
+      "id": 5,
+      "name": "unknown_payload_com",
+      "family": "payload_com",
+      "parameter": "",
+      "assignment": "",
+      "value": 0
+    },
+    {
+      "id": 6,
+      "name": "unknown_voltage",
+      "family": "voltage",
+      "parameter": "",
+      "assignment": "",
+      "value": 0
+    },
+    {
+      "id": 7,
+      "name": "unknown_combined",
+      "family": "combined",
+      "parameter": "",
+      "assignment": "",
+      "value": 0.3
+    }
+  ],
+  "parameter_cases": [
+    {
+      "id": 1,
+      "name": "shared_nominal",
+      "family": "nominal",
+      "parameter": "",
+      "assignment": "identity",
+      "value": 1
+    },
+    {
+      "id": 2,
+      "name": "I_stall_A_x0.95",
+      "family": "motor",
+      "parameter": "I_stall_A",
+      "assignment": "multiply_nominal",
+      "value": 0.95
+    },
+    {
+      "id": 3,
+      "name": "I_stall_A_x1.05",
+      "family": "motor",
+      "parameter": "I_stall_A",
+      "assignment": "multiply_nominal",
+      "value": 1.05
+    },
+    {
+      "id": 4,
+      "name": "I_noload_A_x0.95",
+      "family": "motor",
+      "parameter": "I_noload_A",
+      "assignment": "multiply_nominal",
+      "value": 0.95
+    },
+    {
+      "id": 5,
+      "name": "I_noload_A_x1.05",
+      "family": "motor",
+      "parameter": "I_noload_A",
+      "assignment": "multiply_nominal",
+      "value": 1.05
+    },
+    {
+      "id": 6,
+      "name": "tau_stall_single_Nm_x0.95",
+      "family": "motor",
+      "parameter": "tau_stall_single_Nm",
+      "assignment": "multiply_nominal",
+      "value": 0.95
+    },
+    {
+      "id": 7,
+      "name": "tau_stall_single_Nm_x1.05",
+      "family": "motor",
+      "parameter": "tau_stall_single_Nm",
+      "assignment": "multiply_nominal",
+      "value": 1.05
+    },
+    {
+      "id": 8,
+      "name": "omega_noload_rad_s_x0.95",
+      "family": "motor",
+      "parameter": "omega_noload_rad_s",
+      "assignment": "multiply_nominal",
+      "value": 0.95
+    },
+    {
+      "id": 9,
+      "name": "omega_noload_rad_s_x1.05",
+      "family": "motor",
+      "parameter": "omega_noload_rad_s",
+      "assignment": "multiply_nominal",
+      "value": 1.05
+    },
+    {
+      "id": 10,
+      "name": "C_dc_F_x0.90",
+      "family": "dc",
+      "parameter": "C_dc_F",
+      "assignment": "multiply_nominal",
+      "value": 0.9
+    },
+    {
+      "id": 11,
+      "name": "C_dc_F_x1.10",
+      "family": "dc",
+      "parameter": "C_dc_F",
+      "assignment": "multiply_nominal",
+      "value": 1.1
+    },
+    {
+      "id": 12,
+      "name": "R_source_ohm_x0.90",
+      "family": "dc",
+      "parameter": "R_source_ohm",
+      "assignment": "multiply_nominal",
+      "value": 0.9
+    },
+    {
+      "id": 13,
+      "name": "R_source_ohm_x1.10",
+      "family": "dc",
+      "parameter": "R_source_ohm",
+      "assignment": "multiply_nominal",
+      "value": 1.1
+    },
+    {
+      "id": 14,
+      "name": "V_source_11.7V",
+      "family": "voltage",
+      "parameter": "V_source_V",
+      "assignment": "set",
+      "value": 11.7
+    },
+    {
+      "id": 15,
+      "name": "V_source_12.3V",
+      "family": "voltage",
+      "parameter": "V_source_V",
+      "assignment": "set",
+      "value": 12.3
+    },
+    {
+      "id": 16,
+      "name": "feedback_EWMA_25ms",
+      "family": "filter",
+      "parameter": "P_avg_window_s",
+      "assignment": "set",
+      "value": 0.025
+    },
+    {
+      "id": 17,
+      "name": "feedback_EWMA_100ms",
+      "family": "filter",
+      "parameter": "P_avg_window_s",
+      "assignment": "set",
+      "value": 0.1
+    }
+  ]
+}
